@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Llama2 English Learning",
+  "version": "1.0",
+  "description": "Learn English while reading articles",
+  "permissions": ["activeTab", "storage", "unlimitedStorage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "host_permissions": ["https://api-backend-coral.vercel.app/*"],
+  "commands": {
+    "toggle-popup": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Show pop-up with selected text"
+    }
+  }
+}
